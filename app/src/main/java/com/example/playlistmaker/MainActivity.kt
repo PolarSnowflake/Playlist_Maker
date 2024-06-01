@@ -1,5 +1,6 @@
 package com.example.playlistmaker
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.View
 import androidx.activity.enableEdgeToEdge
@@ -24,20 +25,22 @@ class MainActivity : AppCompatActivity() {
         val button2: Button = findViewById(R.id.button2)
         val button3: Button = findViewById(R.id.button3)
 
-        //  реализация анонимного класса
+//  реализация анонимного класса
         button1.setOnClickListener(object : View.OnClickListener {
             override fun onClick(v: View?) {
-                Toast.makeText(this@MainActivity, "Нажата кнопка Поиск", Toast.LENGTH_SHORT).show()
+                val intent = Intent(this@MainActivity, SearchActivity::class.java)
+                startActivity(intent)
             }
         })
-        // реализация лямбда-выражения
+//  реализация лямбда-выражения
         button2.setOnClickListener {
-            Toast.makeText(this, "Нажата кнопка Медиатека ", Toast.LENGTH_SHORT).show()
+            val intent = Intent(this, MediatekaActivity::class.java)
+            startActivity(intent)
         }
 
         button3.setOnClickListener {
-            Toast.makeText(this, "Нажата кнопка Настройки", Toast.LENGTH_SHORT).show()
+            val intent = Intent(this, SettingsActivity::class.java)
+            startActivity(intent)
         }
-
     }
 }
